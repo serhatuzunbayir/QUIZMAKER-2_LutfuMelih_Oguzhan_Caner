@@ -1,5 +1,5 @@
 
-[![Alt text for your video](http://www.customonlinesigns.com/images/u/1f47d4b5d1a64a649875e7d1293b4ac8-800.png)](https://youtu.be/gLQrbo_i2Zw)
+[![Alt text for your video](http://img2.rnkr-static.com/list_img_v2/16065/116065/870/sweet-home-alabama-cast-and-actors-in-this-movie-u6.jpg)](https://youtu.be/gLQrbo_i2Zw)
 
 "Sweet Home Alabama"
 
