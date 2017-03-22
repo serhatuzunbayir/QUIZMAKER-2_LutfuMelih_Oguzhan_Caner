@@ -1,6 +1,6 @@
 
 
-```html
+
 <h1 style="text-align: center;"><strong><span style="color: #ff0000;">SE 318</span><br /></strong></h1>
 <h1 style="text-align: center;"><strong><span style="color: #ff0000;">GroupName:</span>Alabama<br /></strong><strong><span style="color: #ff0000;">Project:</span>QuizPo</strong></h1>
 <h1 style="text-align: center;">Oğuzhan SARITAŞ</h1>
@@ -10,4 +10,4 @@
 http://progressed.io/bar/59?title=completed
 ![Progress](http://progressed.io/bar/58?title=completed)  
 <h1 style="text-align: left;">&nbsp;</h1>
-<h1 style="text-align: left;">&nbsp;</h1>```
+<h1 style="text-align: left;">&nbsp;</h1>
