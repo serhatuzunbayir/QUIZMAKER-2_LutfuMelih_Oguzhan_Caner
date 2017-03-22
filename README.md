@@ -49,4 +49,4 @@ And the guv'nor's true
 Sweet Home Alabama 
 Lordy 
 Lord, I'm coming home to you 
-Yea, yea Montgomery's got the answer..
+Yea, yea Montgomery's got the answer...
