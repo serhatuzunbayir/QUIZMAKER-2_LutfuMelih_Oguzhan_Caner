@@ -1,5 +1,5 @@
 
-[![Alt text for your video](http://img2.rnkr-static.com/list_img_v2/16065/116065/870/sweet-home-alabama-cast-and-actors-in-this-movie-u6.jpg)](https://youtu.be/gLQrbo_i2Zw)
+[![Alt text for your video](http://d55ohm6038bug.cloudfront.net/June2014-Bojack/images/bojack_contact.png)](https://youtu.be/gLQrbo_i2Zw)
 
 "Sweet Home Alabama"
 
