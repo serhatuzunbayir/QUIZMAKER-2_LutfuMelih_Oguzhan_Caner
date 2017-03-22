@@ -1,3 +1,9 @@
+<strong>SE 318<br /></strong>
+<strong>Group:Alabama<br /></strong>
+<strong>Project:QuizPo<br /></strong>
+#Oğuzhan SARITAŞ <br />
+#Caner Şenol<br />
+#Buğra Oğuzer<br />
 
 [![Alt text for your video](http://d55ohm6038bug.cloudfront.net/June2014-Bojack/images/bojack_contact.png)](https://youtu.be/gLQrbo_i2Zw)
 
