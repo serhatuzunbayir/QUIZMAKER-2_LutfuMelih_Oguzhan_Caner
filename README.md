@@ -8,7 +8,7 @@ SE318!
 -------------
 **Project Name:** QuizPo 
 -------------
-**Members:** Oğuzhan Sarıtaş - Caner Şenol - Lütfu Melih Buğra Oğuzer
+**Members:** Oğuzhan Sarıtaş - Caner Şenol - Lütfü Melih Buğra Oğuzer
 -------------
 
 
