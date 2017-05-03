@@ -12,7 +12,15 @@ SE318!
 -------------
 **Web Application =** www.quizpo.com
 -------------
-
+> Accounts:
+> *****************
+> Username : Teacher 
+Password : 1
+Quizpo quiz creator and manager
+*****
+> Username : Teacher 
+Password : 1
+Quizpo quiz creator and manager
 
 
 
