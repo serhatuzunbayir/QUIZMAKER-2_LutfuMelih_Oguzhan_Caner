@@ -20,7 +20,7 @@ Quizpo quiz creator and manager<br />
 
 Username : Student<br />
 Password : 1<br />
-*Quizpo quiz examer<br />
+Quizpo quiz examer<br />
 
 
 
