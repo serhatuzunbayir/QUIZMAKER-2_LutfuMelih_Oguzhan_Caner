@@ -1,6 +1,6 @@
 # QuizPo
 
-![Progress](http://progressed.io/bar/30?title=Progress)
+![Progress](http://progressed.io/bar/70?title=Progress)
 
 SE318!
 ===================
@@ -10,6 +10,9 @@ SE318!
 -------------
 **Members:** Oğuzhan Sarıtaş - Caner Şenol - Lütfü Melih Buğra Oğuzer
 -------------
+**Web Application =** www.quizpo.com
+-------------
+
 
 
 
