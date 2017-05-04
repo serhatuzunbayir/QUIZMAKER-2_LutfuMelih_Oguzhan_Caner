@@ -1,0 +1,79 @@
+﻿@model QuizMakerApp.Models.ExamViewModel
+@{
+    ViewBag.Title = "Quiz Question";
+}
+
+<div class="mdk-drawer-layout mdk-js-drawer-layout" push has-scrolling-region>
+    <div class="mdk-drawer-layout__content">
+        <div class="container-fluid">
+
+            
+            @foreach (var item in Model.QuizQuestion)
+            {
+                <div class="card">
+
+
+                    <div class="card-header bg-white p-1">
+                        <div class="media">
+                            <div class="media-left media-middle">
+                                <h4 class="mb-0"><strong>#</strong></h4>
+                            </div>
+                            <div class="media-body  media-middle">
+                                <h4 class="card-title">
+                                    @item.Question
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-block p-2">
+                        <div class="form-group">
+                            <label class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">@item.A</span>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">@item.B</span>
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">@item.C</span>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">@item.D</span>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">@item.E</span>
+                            </label>
+                        </div>
+                    </div>
+              
+                </div>
+            }
+
+            <div class="card-footer">
+                @*<a href="#" class="btn btn-white ">Skip</a>*@
+                <a href="/Exam/Result" class="btn btn-success float-xs-right">Submit <i class="material-icons btn__icon--right">send</i></a>
+            </div>
+  
+        </div>
+    </div>
+
+</div>
+

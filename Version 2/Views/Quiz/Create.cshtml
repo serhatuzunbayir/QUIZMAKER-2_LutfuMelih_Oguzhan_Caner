@@ -1,0 +1,69 @@
+﻿@model QuizMakerApp.Models.QuizViewModel
+@{
+    ViewBag.Title = "Quiz Create";
+}
+
+
+    <div class="mdk-drawer-layout mdk-js-drawer-layout" push has-scrolling-region>
+    <div class="mdk-drawer-layout__content">
+        <div class="container-fluid">
+
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/Home/Dashboard">Home</a></li>
+                <li class="breadcrumb-item"><a href="/Quiz/Index">Quiz Manager</a></li>
+                <li class="breadcrumb-item active">Quiz Create</li>
+            </ol>
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title text-center">Quiz Create</h4>
+                </div>
+                <div class="card-block">
+                    <form action="/Quiz/Create" method="POST">
+                        <div class="form-group row">
+                            <label for="course_title" class="col-sm-3 col-form-label">Quiz Title:</label>
+                            <div class="col-sm-9 col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="sizing-addon2">#</span>
+                                    <input type="text" name="Name" id="Name" class="form-control" placeholder="Title" aria-describedby="sizing-addon2">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="course_title" class="col-sm-3 col-form-label">Course:</label>
+                            <div class="col-sm-9 col-md-4">
+
+                                @Html.DropDownList("CourseID", Model.Courses, new { @class = "custom-select form-control", id = "CourseID", @required = "required" })
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="time_toggle" class="col-sm-3 col-form-label">Active / Passive</label>
+                            <div class="col-sm-9">
+                                <div class="switch">
+                                    <input id="cmn-toggle" name="IsActive" class="switch-toggle switch-toggle-round" type="checkbox" checked>
+                                    <label for="cmn-toggle"></label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <button type="submit" class="btn  btn-success btn-block">
+                            <span class="btn-block-text">Quiz Create</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+
+
+            
+
+
+            
+        </div>
+
+        
+    </div>
+
+</div>
+
+

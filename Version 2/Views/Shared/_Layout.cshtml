@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - QuizPo Web Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+    <meta name="robots" content="noindex">
+    <!-- Material Design Icons  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Roboto Web Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+    <!-- MDK -->
+    <link type="text/css" href="~/assets/vendor/material-design-kit.css" rel="stylesheet">
+    <!-- Sidebar Collapse -->
+    <link type="text/css" href="~/assets/vendor/sidebar-collapse.min.css" rel="stylesheet">
+    <!-- App CSS -->
+    <link type="text/css" href="~/assets/css/style.min.css" rel="stylesheet">
+
+    <link type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+
+
+</head>
+@{
+
+    QuizMakerApp.LoginInfo loginInfo = new QuizMakerApp.LoginInfo();
+
+}
+<body class="top-navbar">
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-primary navbar-full navbar-fixed-top">
+
+        <!-- Brand -->
+        <a href="/Home/Dashboard" class="navbar-brand"><i class="material-icons">school</i> QuizPo</a>
+
+
+        <!-- // END Search -->
+        <div class="navbar-spacer"></div>
+        @if (loginInfo.IsAuthenticate())
+        {
+
+        <!-- Menu -->
+            <ul class="nav navbar-nav hidden-sm-down">
+                @if (!loginInfo.GetUserLoginInfo().IsAdmin == false)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Exam/Index"><i class="fa fa-book" aria-hidden="true"></i>  Exams</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/LogOut"><i class="fa fa-sign-out" aria-hidden="true"></i>  Log Off</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/Index"><i class="fa fa-home" aria-hidden="true"></i>  Anasayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Quiz/Index"><i class="fa fa-cog" aria-hidden="true"></i>  Quiz Management</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/User/Account"><i class="fa fa-user" aria-hidden="true"></i>  My Account</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/LogOut"><i class="fa fa-sign-out" aria-hidden="true"></i>  Log Off</a>
+                    </li>
+                }
+            </ul>
+
+
+        <!-- // END Menu -->
+        }
+    </nav>
+    <!-- // END Navbar -->
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - QuizPo Web Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <!-- jQuery -->
+    <script src="~/assets/vendor/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/assets/vendor/tether.min.js"></script>
+    <script src="~/assets/vendor/bootstrap.min.js"></script>
+    <!-- MDK -->
+    <script src="~/assets/vendor/dom-factory.js"></script>
+    <script src="~/assets/vendor/material-design-kit.js"></script>
+    <!-- Sidebar Collapse -->
+    <script src="~/assets/vendor/sidebar-collapse.js"></script>
+    <!-- App JS -->
+    <script src="~/assets/js/main.min.js"></script>
+
+
+</body>
+
+
+</html>
