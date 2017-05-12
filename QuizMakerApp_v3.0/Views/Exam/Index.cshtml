@@ -1,0 +1,37 @@
+﻿@model QuizMakerApp.Models.ExamViewModel
+@{
+    ViewBag.Title = "Index";
+}
+<div class="mdk-drawer-layout mdk-js-drawer-layout" push has-scrolling-region>
+    <div class="mdk-drawer-layout__content">
+        <div class="container-fluid">
+
+            <h1 class="page-heading h2">You List Courses and Quizes</h1>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card">
+                
+                    </div>
+                    <!-- Lessons -->
+                    <form action="/Exam/SelectCourse" method="POST">
+                        <div class="form-group">
+                            <label for="exampleSelect1">Select Your Course</label>
+
+                            @Html.DropDownList("CourseID", Model.Courses, new { @class = "custom-select form-control", id = "CourseID", @required = "required" })
+
+
+                           
+                        </div>
+                        <button type="submit" class="btn btn-warning pull-right"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Enter the Quiz</button>
+
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+

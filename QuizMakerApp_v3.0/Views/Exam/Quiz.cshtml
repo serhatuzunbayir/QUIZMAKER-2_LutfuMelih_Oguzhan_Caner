@@ -1,0 +1,52 @@
+﻿@model QuizMakerApp.Models.ExamViewModel
+@{
+    ViewBag.Title = "Quiz";
+}
+
+<div class="mdk-drawer-layout mdk-js-drawer-layout" push has-scrolling-region>
+    <div class="mdk-drawer-layout__content">
+        <div class="container-fluid">
+
+            
+            <h1 class="page-heading h2">Quizes</h1>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+               
+                    </div>
+                    <!-- Lessons -->
+                    <ul class="card list-group list-group-fit">
+                        @foreach (var item in Model.Quizes)
+                        {
+                            <li class="list-group-item">
+                                <div class="media">
+                              
+                                    <div class="media-body">
+                                    @item.Name
+                                    </div>
+                                    <div class="media-right">
+                                        <form action="/Exam/QuizQuestion" method="POST">
+                                            <input type="hidden" id="QuizID" name="QuizID" value="@item.ID" />
+                                            <small class="text-muted-light">
+
+                                                <button type="submit" class="btn btn-success">JOIN</button>
+
+
+
+                                            </small>
+                                        </form>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+
+                        
+                   
+                    </ul>
+                </div>
+          
+            </div>
+        </div>
+    </div>
+
+</div>
