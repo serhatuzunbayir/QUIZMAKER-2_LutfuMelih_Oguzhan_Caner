@@ -1,0 +1,1 @@
+C:\Users\win10-64\Documents\VSProject\QuizMaker\QuizMakerApp.UnitTests\obj\Debug\QuizMakerApp.UnitTests.csprojResolveAssemblyReference.cache
