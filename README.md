@@ -1,6 +1,6 @@
 # QuizPo
 
-![Progress](http://progressed.io/bar/70?title=Progress)
+![Progress](http://progressed.io/bar/95?title=Progress)
 
 SE318!
 ===================
