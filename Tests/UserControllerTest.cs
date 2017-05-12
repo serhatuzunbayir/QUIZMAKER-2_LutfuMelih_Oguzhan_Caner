@@ -22,7 +22,11 @@ namespace QuizMakerApp.UnitTests
         List<User> userList = null;
 
         UserRepository userRepo = null;
-        OperationResult uow = null;
+    //    UnitOfWork uow = null;
+
+        LSDataContextFactory uow = null;
+
+
         UserController controller = null;
 
         public UserContollerTest()
@@ -35,13 +39,13 @@ namespace QuizMakerApp.UnitTests
 
 
             // Lets create our dummy repository
-            userRepo = new UserRepository(userList);
+            //userRepo = new UserRepository(userList);
 
-            // Let us now create the Unit of work with our dummy repository
-            uow = new OperationResult(userRepo);
+            //// Let us now create the Unit of work with our dummy repository
+            uow = new LSDataContextFactory(userRepo);
 
             // Now lets create the BooksController object to test and pass our unit of work
-            controller = new UserController(op);
+            controller = new UserController(userList);
         }
 
 
@@ -59,9 +63,30 @@ namespace QuizMakerApp.UnitTests
 
             CollectionAssert.Contains(users, newUser);
         }//end void
+        [TestMethod]
+
+        public void Account()
+        {
+            User newUser = new User { ID = 7, UserName = "UTest_2", Email = "unit@testing.com", Password = "UnitTest", IsActive = true, CreatedDate = DateTime.Now, Adress = "", ImageFilePath = "", Phone = "", IsAdmin = false };
+
+            int loggedInCustomerId = new LoginInfo().GetAuthenticatedId();
 
 
-    }
+            User existUser = userRepo.GetSingle(u => u.ID == loggedInCustomerId);
+
+
+            CollectionAssert.Contains(existUser, newUser);
+
+
+        }//end method
+
+
+
+
+
+
+
+    }//end UserContollerTest
 
 
 }//end class

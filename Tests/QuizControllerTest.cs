@@ -2,6 +2,7 @@
 using QuizMakerApp.Controllers;
 using QuizMakerApp.Entity;
 using QuizMakerApp.Model;
+using QuizMakerApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,40 +16,123 @@ namespace QuizMakerApp.UnitTests
     class QuizControllerTest
     {
 
-        User user1 = null;
-        User user2 = null;
+        Quiz quiz1 = null;
+        Quiz quiz2 = null;
 
 
-        List<User> userList = null;
+        List<Quiz> quizList = null;
+        QuizRepository quizRepo = null;
+        QuizQuestionRepository quizQuestionRepo = null;
 
-        UserRepository userRepo = null;
         OperationResult uow = null;
-        UserController controller = null;
+        QuizController controller = null;
 
-        public UserContollerTest()
+        public QuizContollerTest()
         {
+            int loggedInCustomerId = new LoginInfo().GetAuthenticatedId();
 
-            user1 = new User { ID = 5, UserName = "UTest_1", Email = "unit@testing.com", Password = "UnitTest", IsActive = true, CreatedDate = DateTime.Now, Adress = "", ImageFilePath = "", Phone = "", IsAdmin = false };
-            user2 = new User { ID = 6, UserName = "UTest_2", Email = "unit@testing.com", Password = "UnitTest", IsActive = true, CreatedDate = DateTime.Now, Adress = "", ImageFilePath = "", Phone = "", IsAdmin = false };
 
-            userList = new List<User> { user1, user2 };
+            quiz1 = new Quiz { Name = "Quiz Test", CourseID = 2, CreatedDate = DateTime.Now, IsActive = true, UserID = loggedInCustomerId };
+            quiz2 = new Quiz { Name = "Quiz Test 2", CourseID = 3, CreatedDate = DateTime.Now, IsActive = true, UserID = loggedInCustomerId };
+
+
+            quizList = new List<Quiz> { quiz1, quiz2 };
 
 
             // Lets create our dummy repository
-            userRepo = new UserRepository(userList);
+            quizRepo = new UserRepository(quizList);
 
             // Let us now create the Unit of work with our dummy repository
-            uow = new OperationResult(userRepo);
+            uow = new OperationResult(quizRepo);
 
             // Now lets create the BooksController object to test and pass our unit of work
-            controller = new UserController(op);
-        }
+            controller = new QuizController(uow);
+        }//end UserControllerTest
+
+
+        [TestMethod]
+        public void Create()
+        {
+            int loggedInCustomerId = new LoginInfo().GetAuthenticatedId();
+
+
+            Quiz newQuiz = new Quiz()
+            {
+                Name = "Quiz Test",
+                CourseID = 3,
+                CreatedDate = DateTime.Now,
+                IsActive = true,
+                UserID = loggedInCustomerId,
+            };
+
+            // Lets call the action method now
+            controller.Create(newQuiz);
+
+            // get the list of books
+            List<Quiz> quizes = quizRepo.GetAll();
+
+            CollectionAssert.Contains(quizes, newQuiz);
+        }//end method
 
 
 
+        [TestMethod]
+        public void Detail(QuizDetailViewModel quizDetailInfo)
+        {
+
+            QuizDetailViewModel detailViewModel = new QuizDetailViewModel();
+
+            detailViewModel.QuizQuestions = quizQuestionRepo.GetItemListByQueryWithOrderByDesc(q => q.QuizID == quizDetailInfo.ID, q => q.CreatedDate, 0, 1000);
+            detailViewModel.QuizID = quizDetailInfo.ID;
 
 
+            CollectionAssert.Contains(true);
 
+        }//end method
+
+
+        [TestMethod]
+        public void QuizQuestion(QuizQuestion quizQuestionInfo)
+        {
+            Quiz existQuiz = quizRepo.GetSingle(q => q.ID == quizQuestionInfo.QuizID);
+
+            QuizQuestion newQuizQuestion = new QuizQuestion()
+            {
+                QuizID = existQuiz.ID,
+                Question = quizQuestionInfo.Question,
+                A = quizQuestionInfo.A,
+                B = quizQuestionInfo.B,
+                C = quizQuestionInfo.C,
+                D = quizQuestionInfo.D,
+                E = quizQuestionInfo.E,
+                CreatedDate = DateTime.Now,
+                Answer = quizQuestionInfo.Answer,
+                Sequence = quizQuestionInfo.Sequence,
+            };
+
+            List<QuizQuestion> quizesQuestions = quizQuestionRepo.GetAll();
+
+            CollectionAssert.Contains(quizesQuestions, newQuizQuestion);
+
+
+        }//end method
+
+
+        [TestMethod]
+        public void QuizQuestionDelete(QuizQuestion quizDeleteInfo)
+        {
+            QuizQuestion existQuizQuestion = quizQuestionRepo.GetSingle(q => q.ID == quizDeleteInfo.ID);
+
+            OperationResult opResult = quizQuestionRepo.DeleteItem(existQuizQuestion);
+
+
+            List<QuizQuestion> quizesQuestions = quizQuestionRepo.GetAll();
+
+
+            CollectionAssert.Contains(quizesQuestions, opResult);
+
+
+        }//end method
 
     }//end class
 }//end namespace
